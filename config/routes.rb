@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index]
 
-  get '/users/:user_id/recipes/:recipe_id', to: 'users#recipes', as: 'user_recipes'
+  get '/users/:user_id/recipes', to: 'users#recipes', as: 'user_recipes'
+  get '/users/:user_id/reviews', to: 'users#reviews', as: 'user_reviews'
 
   resources :recipes do
     resources :reviews

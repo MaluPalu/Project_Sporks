@@ -1,0 +1,12 @@
+<%= form_for [@recipe, @review] do |f| %>
+  <div>
+    <%= f.text_field :image, placeholder: "Photo" %>
+  </div>
+  <div>
+    <%= f.text_field :content, placeholder: "Write your Review" %>
+  </div>
+  <div>
+    <%= f.number_field :rating, placeholder: "Rating" %>
+  </div>
+  <%= f.submit "Add Review" %>
+<% end %>
