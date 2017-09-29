@@ -1,13 +1,19 @@
+<% recipe_author = User.find_by_id(recipe.user_id) %>
 <ul class="collection">
   <li class="collection-item avatar">
-    <img src="<%=@user.picture%>" alt="" class="circle">
     <span class="title"><h5><%= @recipe.title %></h5></span>
     <p><br>
        <%= @recipe.description %>
     </p>
-    <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @user.name %></i></a>
+    <a href="#!" class="secondary-content">
+      <i class="material-icons">Post by <%= recipe_author.name %></i>
+    </a>
     <hr>
     <%= link_to "Edit Recipe", edit_user_recipe_path(@user), :class=>"waves-effect waves-light btn" %>
-    <%= link_to "Delete", "/users/#{params[:user_id]}/recipes/#{:recipe_id}", :class=>"waves-effect waves-light grey btn", method: :delete, data: { confirm: "You sure?" } %>
+    <%=
+      link_to "Delete", "/recipes/#{@recipe.id}",
+      :class=>"waves-effect waves-light grey btn",
+      method: :delete, data: { confirm: "You sure?" }
+    %>
   </li>
 </ul>
