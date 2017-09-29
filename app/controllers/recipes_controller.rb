@@ -19,7 +19,6 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find_by_id(params[:id])
     @user = current_user
-    redirect_to user_recipe_path
   end
 
   def edit
