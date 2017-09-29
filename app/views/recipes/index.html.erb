@@ -1,18 +1,18 @@
 <% @recipes.each do |recipe| %>
-<ul class="collection">
-  <li class="collection-item avatar">
-    <span class="title"><%= link_to recipe.title, user_recipe_path({id: recipe.id})%></span>
-  <p><br>
-     <%= recipe.description %>
-     <%= recipe.prep_time %>
-     <%= recipe.cook_time %>
-     <%= recipe.ease %>
-     <%= recipe.ingredients %>
-     <%= recipe.instructions %>
-     <%= recipe.serves %>
-     <%= recipe.photo %>
-  </p>
-  <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @user.name %></i></a>
-</li>
-</ul>
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <span class="title"><%= link_to recipe.title, user_recipe_path({id: recipe.id})%></span>
+    <p><br>
+       <%= recipe.description %>
+       <%= recipe.prep_time %>
+       <%= recipe.cook_time %>
+       <%= recipe.ease %>
+       <%= recipe.ingredients %>
+       <%= recipe.instructions %>
+       <%= recipe.serves %>
+       <%= recipe.photo %>
+    </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @user.name %></i></a>
+    </li>
+  </ul>
 <% end %>
