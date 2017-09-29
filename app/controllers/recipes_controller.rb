@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.create(recipe_params)
     @user.recipes << @recipe
     # should go to profile recipes index
-    redirect_to root_path
+    redirect_to user_recipes_path({user_id: @recipe.user.id, recipe_id: @recipe.id})
   end
 
   def show
@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.destroy
     # should go to profile recipes index
-    redirect_to root_path
+    redirect_to user_recipes_path({user_id: @recipe.user.id, recipe_id: @recipe.id})
   end
 
 
@@ -43,5 +43,5 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :description, :prep_time, :cook_time, :ease, :ingredients, :instructions, :serves, :photo)
   end
-  
+
 end

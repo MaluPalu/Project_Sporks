@@ -1,4 +1,4 @@
-<% recipe_author = User.find_by_id(recipe.user_id) %>
+<% recipe_author = User.find_by_id(@recipe.user_id) %>
 <ul class="collection">
   <li class="collection-item avatar">
     <span class="title"><h5><%= @recipe.title %></h5></span>
@@ -9,7 +9,7 @@
       <i class="material-icons">Post by <%= recipe_author.name %></i>
     </a>
     <hr>
-    <%= link_to "Edit Recipe", edit_user_recipe_path(@user), :class=>"waves-effect waves-light btn" %>
+    <%= link_to "Edit Recipe", edit_recipe_path(@recipe), :class=>"waves-effect waves-light btn" %>
     <%=
       link_to "Delete", "/recipes/#{@recipe.id}",
       :class=>"waves-effect waves-light grey btn",

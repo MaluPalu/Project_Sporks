@@ -7,4 +7,9 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def recipes
+    @user = User.find_by_id(params[:user_id])
+    @recipes = @user.recipes
+  end
+
 end

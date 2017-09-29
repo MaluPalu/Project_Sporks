@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index]
 
+  get '/users/:user_id/recipes/:recipe_id', to: 'users#recipes', as: 'user_recipes'
+
   resources :recipes do
     resources :reviews
   end
