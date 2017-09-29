@@ -4,20 +4,22 @@
   <div class="nav-wrapper">
     <a href="#" class="brand-logo">Logo</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <!-- get rid of comment -->
     <!--  <li class="search">
          <div class="search-wrapper card">
           <input id="search"><i class="material-icons">search</i>
           <div class="search-results"></div>
          </div>
       </li> -->
-    <% if current_user %>
-      <li> Hello, <%= current_user.username %></li>
-      <li><%= link_to'Profile', user_path(current_user) %></li>
-      <li><%= link_to'Log Out', destroy_user_session_path, :method=> 'delete' %></li>
-    <% else %>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
-	  <li><%= link_to'Sign Up', new_user_registration_path%></li>
-    <% end %>
+      <!-- INDENTATION! everything that is nested underneath another HTML element should be indented -->
+      <% if current_user %>
+        <li> Hello, <%= current_user.username %></li>
+        <li><%= link_to'Profile', user_path(current_user) %></li>
+        <li><%= link_to'Log Out', destroy_user_session_path, :method=> 'delete' %></li>
+      <% else %>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+  	   <li><%= link_to'Sign Up', new_user_registration_path%></li>
+      <% end %>
     </ul>
   </div>
 </nav>
