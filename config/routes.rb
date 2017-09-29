@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   end
 
   get "/recipes", to: "recipes#index", as: 'recipes'
-
 end
