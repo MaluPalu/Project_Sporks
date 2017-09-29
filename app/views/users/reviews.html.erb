@@ -5,7 +5,7 @@
     <% @reviews.each do |review| %>
       <ul class="collection">
         <li class="collection-item avatar">
-          <span class="title"><%= link_to review.title, recipe_review_path(review)%></span>
+          <span class="title"><%= link_to review.title, recipe_review_path(review.recipe_id, review)%></span>
         <p><br>
         </p>
       </ul>
