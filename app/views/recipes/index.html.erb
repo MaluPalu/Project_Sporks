@@ -1,7 +1,8 @@
 <% @recipes.each do |recipe| %>
+<% recipe_author = User.find_by_id(recipe.user_id) %>
   <ul class="collection">
     <li class="collection-item avatar">
-      <span class="title"><%= link_to recipe.title, user_recipe_path({id: recipe.id})%></span>
+      <span class="title"><%= link_to recipe.title, recipe_path(recipe)%></span>
     <p><br>
        <%= recipe.description %>
        <%= recipe.prep_time %>
@@ -12,7 +13,9 @@
        <%= recipe.serves %>
        <%= recipe.photo %>
     </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @user.name %></i></a>
+      <a href="#!" class="secondary-content">
+        <i class="material-icons">Post by <%= recipe_author.name %></i>
+      </a>
     </li>
   </ul>
 <% end %>
