@@ -1,0 +1,30 @@
+<%= form_for @recipe do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.text_field :description, placeholder: "Description" %>
+  </div>
+  <div>
+    <%= f.text_field :prep_time, placeholder: "Time to Prep" %>
+  </div>
+  <div>
+    <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
+  </div>
+   <div>
+    <%= f.text_field :ease, placeholder: "Ease" %>
+  </div>
+   <div>
+    <%= f.text_field :ingredients, placeholder: "Ingredients" %>
+  </div>
+  <div>
+   <%= f.text_field :instructions, placeholder: "Instructions" %>
+ </div>
+ <div>
+  <%= f.text_field :serves, placeholder: "People Servable" %>
+</div>
+<div>
+ <%= f.text_field :photo, placeholder: "Photo" %>
+</div>
+  <%= f.submit "Add Recipe" %>
+<% end %>
