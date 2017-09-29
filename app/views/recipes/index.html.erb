@@ -1,18 +1,19 @@
 <% @recipes.each do |recipe| %>
-<ul class="collection">
-  <li class="collection-item avatar">
-    <span class="title"><%= link_to recipe.title, user_recipe_path({id: recipe.id})%></span>
-  <p><br>
-     <%= recipe.description %>
-     <%= recipe.prep_time %>
-     <%= recipe.cook_time %>
-     <%= recipe.ease %>
-     <%= recipe.ingredients %>
-     <%= recipe.instructions %>
-     <%= recipe.serves %>
-     <%= recipe.photo %>
-  </p>
-  <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @user.name %></i></a>
-</li>
-</ul>
+  <!-- indentation! beginning / end tags should be lined up. beginning / end of loop should also be lined up -->
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <span class="title"><%= link_to recipe.title, user_recipe_path({id: recipe.id})%></span>
+      <p> <!-- Use CSS (padding) instead - not best practice or semantic to have break at top of p tag -->
+         <%= recipe.description %>
+         <%= recipe.prep_time %>
+         <%= recipe.cook_time %>
+         <%= recipe.ease %>
+         <%= recipe.ingredients %>
+         <%= recipe.instructions %>
+         <%= recipe.serves %>
+         <%= recipe.photo %>
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @user.name %></i></a>
+    </li>
+  </ul>
 <% end %>

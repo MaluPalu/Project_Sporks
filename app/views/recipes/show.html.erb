@@ -10,4 +10,5 @@
     <%= link_to "Edit Recipe", edit_user_recipe_path(@user), :class=>"waves-effect waves-light btn" %>
     <%= link_to "Delete", "/users/#{params[:user_id]}/recipes/#{:recipe_id}", :class=>"waves-effect waves-light grey btn", method: :delete, data: { confirm: "You sure?" } %>
   </li>
+  <!-- Why a ul with only one list item? Get rid of ul and change li to something else. -->
 </ul>
