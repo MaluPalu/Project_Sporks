@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
   def create
     @user = current_user
     @recipe = Recipe.create(recipe_params)
+    @user.recipes << @recipe
     redirect_to user_recipes_path
   end
 
@@ -22,18 +23,20 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find_by_id(params[:recipe_id])
+    @recipe = Recipe.find_by_id(params[:id])
+    @user = current_user
   end
 
   def update
-    recipe = Recipe.find_by_id(params[:recipe_id])
+    recipe = Recipe.find_by_id(params[:id])
     recipe.update(recipe_params)
     redirect_to user_recipe_path({id: recipe.id})
   end
 
   def destroy
-    recipe = Recipe.destroy(params[:recipe_id])
-		flash[:notice] = "Successfully deleted post on " + recipe.user.name + "'s" + ' page.'
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.destroy
+    redirect_to user_recipes_path
   end
 
 

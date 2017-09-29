@@ -8,6 +8,10 @@
     <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @user.name %></i></a>
     <hr>
     <%= link_to "Edit Recipe", edit_user_recipe_path(@user), :class=>"waves-effect waves-light btn" %>
-    <%= link_to "Delete", "/users/#{params[:user_id]}/recipes/#{:recipe_id}", :class=>"waves-effect waves-light grey btn", method: :delete, data: { confirm: "You sure?" } %>
+    <%=
+      link_to "Delete", "/users/#{params[:user_id]}/recipes/#{@recipe.id}",
+      :class=>"waves-effect waves-light grey btn",
+      method: :delete, data: { confirm: "You sure?" }
+    %>
   </li>
 </ul>
