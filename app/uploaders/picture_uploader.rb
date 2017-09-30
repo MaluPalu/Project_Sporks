@@ -1,4 +1,4 @@
-class PhotoUploader < CarrierWave::Uploader::Base
+class PictureUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -17,7 +17,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
 
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_recipe_photo.jpg"].compact.join('_'))
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_profile_picture.jpg"].compact.join('_'))
 
   end
 
