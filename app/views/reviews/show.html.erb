@@ -1,10 +1,13 @@
+<%= image_tag(@review.image_url.to_s, :class=>"recipe-header-image") %>
+
+
 <%= @review.title %>
 <%= @review.content %>
 <%= @review.rating %>
 
-<%= link_to "Edit", edit_recipe_review_path({recipe_id: @recipe.id, review_id: @review.id}), 
+<%= link_to "Edit", edit_recipe_review_path({recipe_id: @recipe.id, review_id: @review.id}),
 :class=>"waves-effect waves-light btn" %>
 
-<%= link_to "Delete", "/recipes/#{@recipe.id}/reviews/#{@review.id}", 
-:class=>"waves-effect waves-light btn", method: :delete, data: 
+<%= link_to "Delete", "/recipes/#{@recipe.id}/reviews/#{@review.id}",
+:class=>"waves-effect waves-light btn", method: :delete, data:
 {confirm: 'Are you sure you want to delete this review?'} %>

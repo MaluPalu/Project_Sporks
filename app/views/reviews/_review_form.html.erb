@@ -3,13 +3,15 @@
     <%= f.text_field :title, placeholder: "Title" %>
   </div>
   <div>
-    <%= f.text_field :image, placeholder: "Photo" %>
-  </div>
-  <div>
-    <%= f.text_field :content, placeholder: "Write your Review" %>
+    <%= f.text_field :content, placeholder: "Write Your Review" %>
   </div>
   <div>
     <%= f.number_field :rating, placeholder: "Rating" %>
   </div>
+  <div>
+    <p> Upload an Image </p>
+    <%= f.file_field :image %>
+  </div>
+  <br>
   <%= f.submit "Add Review" %>
 <% end %>

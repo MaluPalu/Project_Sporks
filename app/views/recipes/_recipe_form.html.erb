@@ -1,4 +1,4 @@
-<%= form_for [@user, @recipe] do |f| %>
+<%= form_for @recipe do |f| %>
   <div>
     <%= f.text_field :title, placeholder: "Title" %>
   </div>
@@ -11,20 +11,22 @@
   <div>
     <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
   </div>
-   <div>
+  <div>
     <%= f.text_field :ease, placeholder: "Ease" %>
   </div>
-   <div>
+  <div>
     <%= f.text_field :ingredients, placeholder: "Ingredients" %>
   </div>
   <div>
-   <%= f.text_field :instructions, placeholder: "Instructions" %>
- </div>
- <div>
-  <%= f.text_field :serves, placeholder: "People Servable" %>
-</div>
-<div>
- <%= f.text_field :photo, placeholder: "Photo" %>
-</div>
+    <%= f.text_field :instructions, placeholder: "Instructions" %>
+  </div>
+  <div>
+    <%= f.text_field :serves, placeholder: "People Servable" %>
+  </div>
+  <div>
+    <p>Add a photo to your recipe</p>
+    <%= f.file_field :photo, placeholder: "Photo" %>
+  </div>
+  <br>
   <%= f.submit "Add Recipe" %>
 <% end %>
