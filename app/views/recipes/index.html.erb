@@ -1,3 +1,10 @@
+<form>
+  <input id="movies_search" autocomplete="off"type="text" name="term"/>
+  <button type="submit">Search</button>
+ </form>
+
+
+
 <% @recipes.each do |recipe| %>
 <% recipe_author = User.find_by_id(recipe.user_id) %>
   <ul class="collection">
