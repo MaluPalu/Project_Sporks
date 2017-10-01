@@ -7,24 +7,30 @@
 
 
 <% @recipes.each do |recipe| %>
-<% recipe_author = User.find_by_id(recipe.user_id) %>
-  <ul class="collection">
-    <li class="collection-item avatar">
-      <span class="title"><%= link_to recipe.title, recipe_path(recipe)%></span>
-    <p><br>
-       <%= recipe.description %>
-       <%= recipe.prep_time %>
-       <%= recipe.cook_time %>
-       <%= recipe.ease %>
-       <%= recipe.ingredients %>
-       <%= recipe.instructions %>
-       <%= recipe.serves %>
-    </p>
-      <a href="#!" class="secondary-content">
-        <i class="material-icons">Post by <%= recipe_author.name %></i>
-      </a>
-    </li>
-  </ul>
+  <% recipe_author = User.find_by_id(recipe.user_id) %>
+
+  <div class="col s8">
+     <div class="card horizontal small">
+       <div class="card-image">
+         <%= image_tag(recipe.photo_url.to_s) %>
+       </div>
+       <div class="card-stacked">
+         <div class="card-content">
+           <h4><%= recipe.title %></h4>
+           <p><%= recipe.description %></p>
+           <p><%= recipe.ingredients %></p>
+         </div>
+         <div class="card-action">
+           <%= link_to "View Recipe", recipe_path(recipe) %>
+         </div>
+       </div>
+     </div>
+   </div>
+   <br>
+
+
+
+
 <% end %>
 
 <%= paginate @recipes %>
