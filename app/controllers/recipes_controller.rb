@@ -3,9 +3,9 @@ class RecipesController < ApplicationController
   def index
     search = params[:term].present? ? params[:term] : nil
     if search
-      @recipes = Recipe.search(search)
+      @recipes = Recipe.search(search, page: params[:page], per_page: 7)
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.all.page(params[:page]).per(7)
     end
   end
 

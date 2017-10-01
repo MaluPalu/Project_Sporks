@@ -5,6 +5,7 @@
 
 
 
+
 <% @recipes.each do |recipe| %>
 <% recipe_author = User.find_by_id(recipe.user_id) %>
   <ul class="collection">
@@ -18,7 +19,6 @@
        <%= recipe.ingredients %>
        <%= recipe.instructions %>
        <%= recipe.serves %>
-       <%= recipe.photo %>
     </p>
       <a href="#!" class="secondary-content">
         <i class="material-icons">Post by <%= recipe_author.name %></i>
@@ -26,3 +26,5 @@
     </li>
   </ul>
 <% end %>
+
+<%= paginate @recipes %>
