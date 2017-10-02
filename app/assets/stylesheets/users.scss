@@ -7,7 +7,7 @@ nav {
 }
 
 .profile-menu {
-  z-index:  -1 !important;
+  z-index:  900 !important;
 }
 
 .user-view {
@@ -25,4 +25,21 @@ nav {
 
 .btn a {
   color: white;
+}
+
+.recipeTitle {
+  font-size: 18px;
+}
+
+.circle {
+  width: 10%;
+}
+
+.card-title {
+  color: orange;
+}
+
+
+.add-recipe {
+  margin-left: 15px;
 }

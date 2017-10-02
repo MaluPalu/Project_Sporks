@@ -9,6 +9,8 @@
   </head>
 
   <body>
+      <%= stylesheet_link_tag %>
+      <%= yield(:head) %> 
     <div><%= render 'layouts/navigation' %> </div>
 
     <%= yield %>

@@ -1,23 +1,33 @@
 <%= render 'profile_menu' %>
 
-<div class="row">
-  <div class="col s7 push-s3">
-    <h2><%= @user.name + "'s Reviews"%></h2>
-    <% @reviews.each do |review| %>
-      <ul class="collection">
-        <li class="collection-item avatar">
-          <span class="title"><%= link_to review.title, recipe_review_path(review.recipe_id, review)%></span>
-        <p><br>
-        </p>
-      </ul>
-    <% end %>
-  </div>
-  <div class="col s2 push-s3">
-    <button class="btn waves-effect waves-light profile-button">
-      <%= link_to "Add Recipe", new_recipe_path %>
-    </button>
-    <button class="btn waves-effect waves-light profile-button">
-      Open Fridge
-    </button>
+
+<div class="row profile-content">
+  <div class="col s8 push-s3 big-card">
+    <h2><%= @user.name + "'s Reviews"%>
+    </h2>
+
+    <div class="row">
+      <% @reviews.each do |review| %>
+      <div class="col s5">
+        <div class="card">
+          <div class="card-image">
+            <img src="<%=review.image%>">
+          </div>
+          <div class="card-content">
+            <h4><%= review.title %></h4>
+            <big><%= review.content%></big>
+            <br>
+            <big>Rating: <%= review.rating%></big>
+          </div>
+          <div class="card-action">
+            <a><%= link_to "Go to Review", recipe_review_path(review.recipe_id, review.id)%></a>
+          </div>
+        </div>
+
+
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
