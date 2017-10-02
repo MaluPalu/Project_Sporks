@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/users/:user_id/reviews', to: 'users#reviews', as: 'user_reviews'
 
   resources :recipes do
+    collection do
+      get :autocomplete
+    end
     resources :reviews
   end
 

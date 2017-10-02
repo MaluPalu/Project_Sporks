@@ -18,3 +18,11 @@
     <%= link_to "Add Review", new_recipe_review_path(@recipe), :class=>"waves-effect waves-light btn" %>
   </li>
 </ul>
+<% @reviews.each do |review| %>
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <span class="title"><%= link_to review.title, recipe_review_path(review.recipe_id, review)%></span>
+    <p><br>
+    </p>
+  </ul>
+<% end %>
