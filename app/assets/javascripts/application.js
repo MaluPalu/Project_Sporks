@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require typeahead.bundle
 //= require materialize-sprockets
 //= require turbolinks
 //= require_tree .

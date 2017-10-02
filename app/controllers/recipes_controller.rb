@@ -9,6 +9,12 @@ class RecipesController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Recipe.search(params[:query], {
+      fields: ["title", "ingredients"]
+      }).map(&:title)
+  end
+
   def new
     @recipe = Recipe.new
   end
@@ -23,6 +29,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by_id(params[:id])
+    @reviews = @recipe.reviews
   end
 
   def edit
