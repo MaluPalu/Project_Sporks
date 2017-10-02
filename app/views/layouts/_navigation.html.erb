@@ -11,12 +11,12 @@
                 <div class="row" id="topbarsearch">
                     <div class="input-field col s6 s12 red-text">                     
                         <form action="/recipes" method="get">
-                          <input id="movies_search" autocomplete="off" type="text" name="term" placeholder="search"/>
+                          <input id="recipes_search" autocomplete="off" type="text" name="term" placeholder="search"/>
                         </form>
                     </div>
                 </div>
             </div>
-       </li>
+        </li>
       <% if current_user %>
         <li> Hello, <%= current_user.username %></li>
         <li><%= link_to'Profile', user_path(current_user) %></li>

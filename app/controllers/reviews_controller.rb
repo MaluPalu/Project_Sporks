@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find_by_id(params[:id])
     @review.destroy
-    redirect_to user_reviews_path(@review.user_id, @review.id)
+    redirect_to user_reviews_path(@review.user_id)
   end
 
   private

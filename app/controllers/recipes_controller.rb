@@ -3,10 +3,16 @@ class RecipesController < ApplicationController
   def index
     search = params[:term].present? ? params[:term] : nil
     if search
-      @recipes = Recipe.search(search)
+      @recipes = Recipe.search(search, page: params[:page], per_page: 7)
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.all.page(params[:page]).per(7)
     end
+  end
+
+  def autocomplete
+    render json: Recipe.search(params[:query], {
+      fields: ["title", "ingredients"]
+      }).map(&:title)
   end
 
   def new
@@ -23,6 +29,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by_id(params[:id])
+    @reviews = @recipe.reviews
   end
 
   def edit

@@ -4,6 +4,8 @@ class Recipe < ApplicationRecord
 
   searchkick word_middle: [:title, :ingredients]
 
+  mount_uploader :photo, PhotoUploader
+
   def search_data
     {
       title: title,

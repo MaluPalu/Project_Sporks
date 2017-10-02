@@ -1,4 +1,5 @@
 <% recipe_author = User.find_by_id(@recipe.user_id) %>
+<%= image_tag(@recipe.photo_url.to_s, :class=>"recipe-header-image") %>
 <ul class="collection">
   <li class="collection-item avatar">
     <span class="title"><h5><%= @recipe.title %></h5></span>
@@ -18,3 +19,11 @@
     <%= link_to "Add Review", new_recipe_review_path(@recipe), :class=>"waves-effect waves-light btn" %>
   </li>
 </ul>
+<% @reviews.each do |review| %>
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <span class="title"><%= link_to review.title, recipe_review_path(review.recipe_id, review)%></span>
+    <p><br>
+    </p>
+  </ul>
+<% end %>
