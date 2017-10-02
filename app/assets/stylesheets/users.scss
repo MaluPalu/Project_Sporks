@@ -7,7 +7,7 @@ nav {
 }
 
 .profile-menu {
-  z-index:  -1 !important;
+  z-index:  900 !important;
 }
 
 .user-view {
@@ -35,18 +35,8 @@ nav {
   width: 10%;
 }
 
-
-
 .card-title {
   color: orange;
-}
-
-.profile-content {
-  margin-top: -70px;
-}
-
-.global-nav {
-  z-index: 999 !important;
 }
 
 .add-recipe {
