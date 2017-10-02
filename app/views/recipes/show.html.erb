@@ -18,6 +18,10 @@ url(<%= asset_path @recipe.photo %>); background-size: cover">
       method: :delete, data: { confirm: "You sure?" }
     %>
     <%= link_to "Add Review", new_recipe_review_path(@recipe), :class=>"waves-effect waves-light btn" %>
+    <% if current_user %>
+      <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), method: :put %>
+      <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), method: :put %>
+    <% end %>
   </li>
 </ul>
 <% @reviews.each do |review| %>
