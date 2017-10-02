@@ -1,19 +1,21 @@
 
-
-<ul class="side-nav fixed profile-menu">
-    <li><div class="user-view">
-      <div class="background">
-        <img src="https://www.photohdx.com/images/2016/11/white-embossed-paper-texture-backdrop.jpg">
-      </div>
-      <div class="user-info">
-        <%= image_tag(@user.picture_url.to_s, :class=>"circle") %>
-        <!-- <img class="circle" src="http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"> -->
-        <h5> <%= @user.name %> </h5>
-        <h5> <%= @user.username %> </h5>
-      </div>
-    </div></li>
-    <li><%= link_to "Recipes", user_recipes_path(@user), :class=> "waves-effect" %></li>
-    <li><%= link_to "Reviews", user_reviews_path(@user), :class=> "waves-effect" %></li>
-    <li><a class="waves-effect" href="#!">Followers</a></li>
-    <li><%= link_to "Edit Profile", edit_user_registration_path(@user), :class=> "waves-effect" %></li>
+<div class="navbar-fixed">
+  <ul class="side-nav fixed profile-menu">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="https://www.photohdx.com/images/2016/11/white-embossed-paper-texture-backdrop.jpg">
+        </div>
+        <div class="user-info">
+          <%= image_tag(@user.picture_url.to_s, :class=>"circle") %>
+          <!-- <img class="circle" src="http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"> -->
+          <h5> <%= @user.name %> </h5>
+          <h5> <%= @user.username %> </h5>
+        </div>
+      </div></li>
+      <li><%= link_to "Recipes", user_recipes_path(@user), :class=> "waves-effect" %></li>
+      <li><%= link_to "Reviews", user_reviews_path(@user), :class=> "waves-effect" %></li>
+      <li><a class="waves-effect" href="#!">Followers</a></li>
+      <li><%= link_to "Edit Profile", edit_user_registration_path(@user), :class=> "waves-effect" %></li>
+      <li><a class="waves-effect" href="#!">Open Fridge</a></li>
   </ul>
+</div>
