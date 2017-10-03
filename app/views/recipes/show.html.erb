@@ -30,11 +30,15 @@
             <% else %>
               <% if current_user %>
                 <%= link_to "Add Review", new_recipe_review_path(@recipe) %>
-                <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), :class=> "waves-effect", method: :put %>
-                <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), :class=> "waves-effect", method: :put %>
+                <% if !favorited_recipe? %>
+                  <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"),
+                   :class=> "waves-effect", method: :put %>
+                <% else %>
+                  <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"),
+                   :class=> "waves-effect", method: :put %>
+                <% end %>
               <% end %>
             <% end %>
-
           </div>
         </div>
       </div>

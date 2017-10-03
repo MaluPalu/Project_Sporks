@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :get_recipe, only: [:favorite, :show, :edit, :udpate, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     search = params[:term].present? ? params[:term] : nil
@@ -11,14 +12,12 @@ class RecipesController < ApplicationController
   end
 
   def favorite
-    fav_arr = current_user.favorites.map { |x| x.id }
     type = params[:type]
-
-    if type == "favorite" && !fav_arr.include?(@recipe.id)
+    if type == "favorite" && !favorited_recipe?
       current_user.favorites << @recipe
       redirect_to recipe_path(@recipe), notice: 'You favorited ' + @recipe.title
 
-    elsif type == "unfavorite"
+    elsif type == "unfavorite" && favorited_recipe?
       current_user.favorites.delete(@recipe)
       redirect_to recipe_path(@recipe), notice: 'Unfavorited ' + @recipe.title
 
@@ -60,7 +59,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     # should go to profile recipes index
-    redirect_to user_recipes_path({user_id: @recipe.user.id, recipe_id: @recipe.id})
+    redirect_to user_recipes_path(@recipe.user.id, @recipe.id)
   end
 
 

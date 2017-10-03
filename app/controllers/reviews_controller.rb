@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :get_review, only: [:show, :edit, :update, :destroy]
   before_action :get_recipe, only: [:new, :create, :show, :edit]
+  before_action :authenticate_user!, except: [:show]
 
   def new
     @review = Review.new
