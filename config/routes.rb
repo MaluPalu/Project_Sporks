@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'users#index'
 
-  resources :users, except: [:index]
+  resources :users, except: [:index] do
+    put :follow, on: :member
+  end
 
   get '/users/:user_id/recipes', to: 'users#recipes', as: 'user_recipes'
   get '/users/:user_id/reviews', to: 'users#reviews', as: 'user_reviews'
   get '/users/:user_id/favorites', to: 'users#favorites', as: 'user_favorites'
+  get '/users/:user_id/followings', to: 'users#followings', as: 'user_followings'
 
   resources :recipes do
     put :favorite, on: :member

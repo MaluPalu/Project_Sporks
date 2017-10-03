@@ -1,0 +1,20 @@
+<%= render 'profile_menu' %>
+
+<div class="row">
+  <% @follows.each do |follow| %>
+    <div class="col s5 push-s3">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%=follow.picture%>">
+        </div>
+        <div class="card-content">
+          <h4><%= follow.name %></h4>
+          <big><%= follow.username %></big>
+        </div>
+        <div class="card-action">
+          <a><%= link_to "Go to Profile", user_path(follow)%></a>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>

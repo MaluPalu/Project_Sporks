@@ -13,7 +13,7 @@
       <li><%= link_to "Recipes", user_recipes_path(@user), :class=> "waves-effect" %></li>
       <li><%= link_to "Reviews", user_reviews_path(@user), :class=> "waves-effect" %></li>
       <li><%= link_to "Favorites", user_favorites_path(@user), :class=> "waves-effect" %></li>
-      <li><a class="waves-effect" href="#!">Followers</a></li>
+      <li><%= link_to "Following", user_followings_path(@user), :class=> "waves-effect" %></li>
       <li><%= link_to "Edit Profile", edit_user_registration_path(@user), :class=> "waves-effect" %></li>
       <li><a class="waves-effect" href="#!">Open Fridge</a></li>
   </ul>
