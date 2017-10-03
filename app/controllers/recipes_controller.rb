@@ -12,7 +12,9 @@ class RecipesController < ApplicationController
   end
 
   def favorite
+
     type = params[:type]
+
     if type == "favorite" && !favorited_recipe?
       current_user.favorites << @recipe
       redirect_to recipe_path(@recipe), notice: 'You favorited ' + @recipe.title
