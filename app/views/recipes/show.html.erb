@@ -1,5 +1,8 @@
 <div class="recipe-show-page">
-  <%= image_tag(@recipe.photo_url.to_s, :class => "main-recipe-image") %>
+
+  <div class="parallax-container">
+    <div class="parallax"><%= image_tag(@recipe.photo_url.to_s, :class => "main-recipe-image") %></div>
+  </div>
 
   <div class="recipe-body">
 
@@ -25,10 +28,11 @@
                 method: :delete, data: { confirm: "You sure?" }, class: "icon-class"
               %>
             <% else %>
-            <% if current_user %>
-              <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), :class=> "waves-effect", method: :put %>
-              <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), :class=> "waves-effect", method: :put %>
-            <% end %>
+              <% if current_user %>
+                <%= link_to "Add Review", new_recipe_review_path(@recipe) %>
+                <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), :class=> "waves-effect", method: :put %>
+                <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), :class=> "waves-effect", method: :put %>
+              <% end %>
             <% end %>
 
           </div>
