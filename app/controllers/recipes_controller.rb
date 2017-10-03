@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find_by_id(params[:id])
     @reviews = @recipe.reviews
+    @user = User.find_by_id(@recipe.user_id)
   end
 
   def edit
