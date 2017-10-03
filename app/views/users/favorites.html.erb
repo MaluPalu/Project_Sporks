@@ -1,8 +1,6 @@
 <%= render 'profile_menu' %>
 
-<% if flash[:notice] %>
-	<div class="notice"><font color="green"><%= flash[:notice] %></font></div>
-<% end %>
+
 <div class="row profile-content">
   <div class="col s8 push-s3 big-card">
     <h2><%= @user.name + "'s Favorites"%></h2>
