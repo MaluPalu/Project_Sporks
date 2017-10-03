@@ -1,46 +1,110 @@
-<h2>Sign up</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  
   <%= devise_error_messages! %>
+<body class="orange loaded">
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "off" %>
+<div class="container">
+  <div id="login-page" class="row">
+    <div class="col s6 offset-s3 z-depth-4 card-panel center-align">
+      <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %> 
+            <p class="center login-form-text">Sporks Login---- Changing logo</p>
+          </div>
+        </div>  
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person</i>
+              <%= f.text_field :name, autocomplete: "off" %>
+            <label for="name" class="center-align">Name</label>
+          </div>
+        </div>
+         <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">verified_user</i>
+              <%= f.text_field :username, autocomplete: "off" %>
+          <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+         <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">photo_camera</i>
+              <%= f.file_field :picture %>
+            <label for="picture" class="center-align"></label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+              <%= f.email_field :email, autofocus: true %>
+            <label for="email" class="center-align">Email</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+               <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br /><i class="material-icons prefix">lock</i>
+                <%= f.password_field :password, autocomplete: "off" %>
+            <label for="Password" class="center-align">Password</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+             <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <label for="password_confirmation">Password Confirmation</label>
+          </div>
+        </div>
+        <div class="row"> 
+        <% if devise_mapping.rememberable? -%>         
+          <div class="input-field col s12 login-text">
+              <%= f.check_box :remember_me %>
+              <label for="remember-me">Remember me</label>
+          </div>
+          <% end -%>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 center-align">
+            <%= f.submit "Log in", :class=> 'btn' , :id=> 'btn' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            Already have an account?
+           <%- if controller_name != 'sessions' %>
+             <%= link_to "Log in", new_session_path(resource_name) %><br />
+            <% end -%>
+          </div>
+          </div>          
+        </div>
+      </form>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.file_field :picture %>
-  </div>
-
-  <br>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+</div>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%= render "devise/shared/links" %>
