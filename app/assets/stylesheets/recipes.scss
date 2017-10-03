@@ -2,7 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.recipe-header-image {
-  height: 200px;
-  width: auto;
+.main-recipe-image {
+  width: 100%;
+  height: auto;
+}
+
+.user-pic {
+  border-radius: 50%;
+  width: 50%;
+  margin-top: 15%;
 }

@@ -16,4 +16,9 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     @reviews = @user.reviews
   end
+
+  def favorites
+    @user = User.find_by_id(params[:user_id])
+    @recipes = @user.favorites
+  end
 end

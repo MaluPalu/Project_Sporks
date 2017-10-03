@@ -1,30 +1,108 @@
-<div class="jumbotron" style="height: 80vh; background-image:
-url(<%= asset_path @recipe.photo %>); background-size: cover">
-<% recipe_author = User.find_by_id(@recipe.user_id) %>
-<ul class="collection">
-  <li class="collection-item avatar">
-    <span class="title"><h5><%= @recipe.title %></h5></span>
-    <p><br>
-       <%= @recipe.description %>
-    </p>
-    <a href="#!" class="secondary-content">
-      <i class="material-icons">Post by <%= recipe_author.name %></i>
-    </a>
+<div class="recipe-show-page">
+
+  <div class="parallax-container">
+    <div class="parallax"><%= image_tag(@recipe.photo_url.to_s, :class => "main-recipe-image") %></div>
+  </div>
+
+  <div class="recipe-body">
+
+    <div class="row">
+      <div class="col s2 center-align">
+        <%= link_to image_tag(@user.picture_url.to_s, :class => "user-pic"), user_path(@user) %>
+      </div>
+      <div class="col s5">
+        <% if flash[:notice] %>
+        	<div class="notice"><font color="#FF9635"><%= flash[:notice] %></font></div>
+        <% end %>
+        <h2><%= @recipe.title %></h2>
+        <div  class="row center-align">
+          <div class="col s4">
+            rating will go here
+          </div>
+          <div class="col s8">
+            <% if current_user == User.find_by_id(@recipe.user_id) %>
+
+              <%= link_to material_icon.edit, edit_recipe_path(@recipe), class: "icon-class" %>
+              <%=
+                link_to material_icon.delete, "/recipes/#{@recipe.id}",
+                method: :delete, data: { confirm: "You sure?" }, class: "icon-class"
+              %>
+            <% else %>
+              <% if current_user %>
+                <%= link_to "Add Review", new_recipe_review_path(@recipe) %>
+                <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), :class=> "waves-effect", method: :put %>
+                <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), :class=> "waves-effect", method: :put %>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      <div class="col s5">
+        <p><%= @recipe.description %></p>
+      </div>
+    </div>
     <hr>
-    <%= link_to "Edit Recipe", edit_recipe_path(@recipe), :class=>"waves-effect waves-light btn" %>
-    <%=
-      link_to "Delete", "/recipes/#{@recipe.id}",
-      :class=>"waves-effect waves-light grey btn",
-      method: :delete, data: { confirm: "You sure?" }
-    %>
-    <%= link_to "Add Review", new_recipe_review_path(@recipe), :class=>"waves-effect waves-light btn" %>
-  </li>
-</ul>
+
+
+
+    <div class="row">
+      <div class="col s3 center-align">
+        <h4>Difficulty Level: <br><%= @recipe.ease %></h4>
+      </div>
+      <div class="col s3 center-align">
+        <h4>Prep Time: <br><%= @recipe.prep_time %></h4>
+      </div>
+      <div class="col s3 center-align">
+        <h4>Cook Time: <br><%= @recipe.cook_time %></h4>
+      </div>
+      <div class="col s3 center-align">
+        <h4>Serves: <br><%= @recipe.serves %></h4>
+      </div>
+      <hr>
+    </div>
+
+    <div class="row">
+      <div class="col s5 center-align push-s1">
+        <h4>Ingredients</h4>
+        <hr>
+      </div>
+      <div class="col s5 center-align push-s1">
+        <h4>Directions</h4>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s5 push-s1">
+        <p><%= @recipe.ingredients %></p>
+      </div>
+      <div class="col s5 push-s1">
+        <p><%= @recipe.instructions %></p>
+      </div>
+    </div>
+
+
+</div>
+
+
 <% @reviews.each do |review| %>
-  <ul class="collection">
-    <li class="collection-item avatar">
-      <span class="title"><%= link_to review.title, recipe_review_path(review.recipe_id, review)%></span>
-    <p><br>
-    </p>
-  </ul>
+  <div class="col s12 m7">
+     <div class="card horizontal small">
+       <div class="card-image">
+         <%= image_tag(review.image_url.to_s) %>
+       </div>
+       <div class="card-stacked">
+         <div class="card-content">
+           <h4><%= review.title %></h4>
+           <p><%= review.content %></p>
+           <p><%= review.rating %></p>
+         </div>
+         <div class="card-action">
+           <%= link_to "Go to Full Review", recipe_review_path(@recipe.id, review.id) %>
+         </div>
+       </div>
+     </div>
+   </div>
+   <br>
 <% end %>
