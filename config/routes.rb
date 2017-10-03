@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     put :follow, on: :member
   end
 
-  get '/users/:user_id/recipes', to: 'users#recipes', as: 'user_recipes'
-  get '/users/:user_id/reviews', to: 'users#reviews', as: 'user_reviews'
-  get '/users/:user_id/favorites', to: 'users#favorites', as: 'user_favorites'
-  get '/users/:user_id/followings', to: 'users#followings', as: 'user_followings'
+  get '/users/:id/recipes', to: 'users#recipes', as: 'user_recipes'
+  get '/users/:id/reviews', to: 'users#reviews', as: 'user_reviews'
+  get '/users/:id/favorites', to: 'users#favorites', as: 'user_favorites'
+  get '/users/:id/followings', to: 'users#followings', as: 'user_followings'
 
   resources :recipes do
     put :favorite, on: :member
