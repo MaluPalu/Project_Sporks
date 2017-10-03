@@ -16,6 +16,6 @@
       <li><%= link_to "Following", user_followings_path(@user), :class=> "waves-effect" %></li>
       <% if same_as_current_user? %>
         <li><%= link_to "Edit Profile", edit_user_registration_path(@user), :class=> "waves-effect" %></li>
-        <li><a class="waves-effect" href="#!">Open Fridge</a></li>
+        <li><%= link_to "Open Fridge", user_fridge_path(@user), :class=> "waves-effect" %></li>
       <% end %>
   </ul>

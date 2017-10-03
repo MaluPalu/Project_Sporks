@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   def index
     search = params[:term].present? ? params[:term] : nil
     if search
-      @recipes = Recipe.search(search, page: params[:page], per_page: 7)
+      @recipes = Recipe.search(search, operator: "or", page: params[:page], per_page: 7)
     else
       @recipes = Recipe.all.page(params[:page]).per(7)
     end
@@ -42,7 +42,7 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe = Recipe.create(recipe_params)
     @user.recipes << @recipe
-    redirect_to user_recipes_path({user_id: @recipe.user.id, recipe_id: @recipe.id})
+    redirect_to user_recipes_path(@recipe.user.id, @recipe.id)
   end
 
   def show

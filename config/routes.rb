@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/users/:id/reviews', to: 'users#reviews', as: 'user_reviews'
   get '/users/:id/favorites', to: 'users#favorites', as: 'user_favorites'
   get '/users/:id/followings', to: 'users#followings', as: 'user_followings'
+  get '/users/:id/fridge', to: 'users#fridge', as: 'user_fridge'
+  # patch '/users/:id/fridge', to: 'users#update'
 
   resources :recipes do
     put :favorite, on: :member

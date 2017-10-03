@@ -24,6 +24,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def fridge
+
+  end
+
+  def update
+    @user.update_attributes(fridge_params)
+    list_of_ingredients = @user.fridge.split(", ")
+    search_term = list_of_ingredients.join("%20")
+    redirect_to "/recipes/?term=#{search_term}"
+  end
+
   def recipes
     @recipes = @user.recipes
   end
@@ -44,6 +55,10 @@ class UsersController < ApplicationController
 
   def get_user
     @user = User.find_by_id(params[:id])
+  end
+
+  def fridge_params
+    params.require(:user).permit(:fridge)
   end
 
 
