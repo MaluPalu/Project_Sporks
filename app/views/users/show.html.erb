@@ -4,6 +4,13 @@
 <div class="row">
   <div class="col s8 push-s3">
     <h2>Activity Feed</h2>
-    <p>TBD</p>
-  </div>
+    <%= link_to "Follow",   follow_user_path(@user, type: "follow"), :class=> "waves-effect", method: :put %>
+    <%= link_to "Unfollow", follow_user_path(@user, type: "unfollow"), :class=> "waves-effect", method: :put %>
+    <% if flash[:notice] %>
+      <div class="notice"><font color="#FF9635"><%= flash[:notice] %></font></div>
+    <% end %>
+
+
+
+  <div>
 </div>
