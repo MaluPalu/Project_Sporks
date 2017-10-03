@@ -1,6 +1,9 @@
 <div class="jumbotron" style="height: 80vh; background-image:
 url(<%= asset_path @recipe.photo %>); background-size: cover">
 <% recipe_author = User.find_by_id(@recipe.user_id) %>
+<% if flash[:notice] %>
+	<div class="notice"><font color="#FF9635"><%= flash[:notice] %></font></div>
+<% end %>
 <ul class="collection">
   <li class="collection-item avatar">
     <span class="title"><h5><%= @recipe.title %></h5></span>

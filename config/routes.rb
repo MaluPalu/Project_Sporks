@@ -7,12 +7,13 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/recipes', to: 'users#recipes', as: 'user_recipes'
   get '/users/:user_id/reviews', to: 'users#reviews', as: 'user_reviews'
+  get '/users/:user_id/favorites', to: 'users#favorites', as: 'user_favorites'
 
   resources :recipes do
     put :favorite, on: :member
     collection do
       get :autocomplete
     end
-  end
     resources :reviews
   end
+end

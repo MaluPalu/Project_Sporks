@@ -1,0 +1,41 @@
+<%= render 'profile_menu' %>
+
+<% if flash[:notice] %>
+	<div class="notice"><font color="green"><%= flash[:notice] %></font></div>
+<% end %>
+<div class="row profile-content">
+  <div class="col s8 push-s3 big-card">
+    <h2><%= @user.name + "'s Favorites"%></h2>
+    <div class="row">
+      <% @recipes.each do |recipe| %>
+      <div class="col s5">
+        <div class="card">
+          <div class="card-image">
+            <img src="<%=recipe.photo%>">
+            <span class="card-title"><%=recipe.title%></span>
+          </div>
+          <div class="card-content">
+            <p>
+              <h5 class="recipeTitle">Description:</h5>
+              <%= recipe.description %> <br>
+              <h5 class="recipeTitle">Prep Time:</h5>
+              <%= recipe.prep_time %> <br>
+              <h5 class="recipeTitle">Cook Time:</h5>
+              <%= recipe.cook_time %> <br>
+              <h5 class="recipeTitle">Ease of make:</h5>
+              <%= recipe.ease %> <br>
+              <h5 class="recipeTitle">Serves:</h5>
+              <%= recipe.serves %>
+            </p>
+          </div>
+          <div class="card-action">
+            <a><%= link_to recipe.title, recipe_path(recipe)%></a>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div>
