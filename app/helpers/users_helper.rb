@@ -10,4 +10,8 @@ module UsersHelper
     following_arr.include?(params[:id].to_i)
   end
 
+  def same_as_current_user?
+    !!current_user == User.find_by_id(params[:id])
+  end
+
 end

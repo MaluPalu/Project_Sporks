@@ -3,8 +3,10 @@
 <div class="row profile-content">
   <div class="col s8 push-s3 big-card">
     <h2><%= @user.name + "'s Recipes"%>
-      <%= link_to material_icon.add, new_recipe_path,
-      class: "btn-floating btn-large waves-effect waves-light orange add-recipe" %>
+      <% if same_as_current_user? %>
+        <%= link_to material_icon.add, new_recipe_path,
+        class: "btn-floating btn-large waves-effect waves-light orange add-recipe" %>
+      <% end %>
     </h2>
 
     <div class="row">
