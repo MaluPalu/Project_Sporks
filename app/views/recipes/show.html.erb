@@ -8,6 +8,9 @@
         <%= link_to image_tag(@user.picture_url.to_s, :class => "user-pic"), user_path(@user) %>
       </div>
       <div class="col s5">
+        <% if flash[:notice] %>
+        	<div class="notice"><font color="#FF9635"><%= flash[:notice] %></font></div>
+        <% end %>
         <h2><%= @recipe.title %></h2>
         <div  class="row center-align">
           <div class="col s4">
@@ -22,8 +25,10 @@
                 method: :delete, data: { confirm: "You sure?" }, class: "icon-class"
               %>
             <% else %>
-              ADD FAVORITE AND ADD REVIEW BUTTONS HERE
-
+            <% if current_user %>
+              <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"), :class=> "waves-effect", method: :put %>
+              <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), :class=> "waves-effect", method: :put %>
+            <% end %>
             <% end %>
 
           </div>

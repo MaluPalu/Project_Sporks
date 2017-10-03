@@ -9,6 +9,24 @@ class RecipesController < ApplicationController
     end
   end
 
+  def favorite
+    fav_arr = current_user.favorites.map { |x| x.id }
+    @recipe = Recipe.find_by_id(params[:id])
+  type = params[:type]
+  if type == "favorite" && !fav_arr.include?(@recipe.id)
+    current_user.favorites << @recipe
+    redirect_to recipe_path(@recipe), notice: 'You favorited ' + @recipe.title
+
+  elsif type == "unfavorite"
+    current_user.favorites.delete(@recipe)
+    redirect_to recipe_path(@recipe), notice: 'Unfavorited ' + @recipe.title
+
+  else
+    # Type missing, nothing happens
+    redirect_to recipe_path(@recipe), notice: 'Nothing happened.'
+  end
+end
+
   def autocomplete
     render json: Recipe.search(params[:query], {
       fields: ["title", "ingredients"]
