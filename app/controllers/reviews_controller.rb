@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :get_review, only: [:show, :edit, :update, :destroy]
   before_action :get_recipe, only: [:new, :create, :show, :edit]
   before_action :authenticate_user!, except: [:show]
+  before_action :check_current_user, only: [:edit, :update, :destroy]
 
   def new
     @review = Review.new
@@ -44,6 +45,12 @@ class ReviewsController < ApplicationController
 
   def get_recipe
     @recipe = Recipe.find_by_id(params[:recipe_id])
+  end
+
+  def check_current_user
+    if current_user != User.find_by_id(@review.user_id)
+      redirect_to root_path
+    end
   end
 
 end

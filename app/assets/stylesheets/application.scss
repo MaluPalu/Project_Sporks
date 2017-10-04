@@ -21,18 +21,17 @@
 .slider {
 	margin-top: -64px;
 }
-
 #recipes_search.tt-input {
-
 	color: black;
-	
 }
 #recipes_search{
 	background-color: rgba(255, 255, 255, .5);
-
 }
 #topbarsearch {
 	margin-top: 10px;
+}
+input.col.tt-hint {
+	border-radius: 5px;
 }
 
 .twitter-typeahead {
@@ -45,26 +44,32 @@
 placeholder {
 	color: black;
 }
-
 .twitter-typeahead { width: 100%; } 
-
-
 nav {
 	background-color: rgb(12, 52, 88);
-	
 }
-
 #btn {
 	background-color: rgb(12, 52, 88);
 }
  #ta {
  	outline: solid ;
  }
-
 .toast h2 {
 	font-size: 30px !important ; 
 }
+.card .card-image {
+	&.c-hover .card-title {
+		color: transparent;
+	}
 
-#recipes-show:hover  {
-	background-color: white
+	&.c-hover:hover img {
+		opacity: 0;
+	}
+
+	&.c-hover:hover .card-title {
+		color: black;
+	}
+}
+.page-footer {
+	background-color: rgb(12, 52, 88);
 }

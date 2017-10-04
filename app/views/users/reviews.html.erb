@@ -9,23 +9,8 @@
     <div class="row">
       <% @reviews.each do |review| %>
       <div class="col s5">
-        <div class="card">
-          <div class="card-image">
-            <img src="<%=review.image%>">
-          </div>
-          <div class="card-content">
-            <h4><%= review.title %></h4>
-            <big><%= review.content%></big>
-            <br>
-            <big>Rating: <%= review.rating%></big>
-          </div>
-          <div class="card-action">
-            <a><%= link_to "Go to Review", recipe_review_path(review.recipe_id, review.id)%></a>
-          </div>
-        </div>
-
-
-        </div>
+        <%= render "review_card", review: review %>
+      </div>
       <% end %>
     </div>
 

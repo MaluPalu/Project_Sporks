@@ -1,13 +1,15 @@
 class RecipesController < ApplicationController
   before_action :get_recipe, only: [:favorite, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_current_user, only: [:edit, :update, :destroy]
 
   def index
+
     search = params[:term].present? ? params[:term] : nil
     if search
-      @recipes = Recipe.search(search, operator: "or", page: params[:page], per_page: 7)
+      @recipes = Recipe.search(search, operator: "or", page: params[:page], per_page: 100)
     else
-      @recipes = Recipe.all.page(params[:page]).per(7)
+      @recipes = Recipe.all.page(params[:page]).per(100)
     end
   end
 
@@ -60,7 +62,6 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    # should go to profile recipes index
     redirect_to user_recipes_path(@recipe.user.id, @recipe.id)
   end
 
@@ -73,6 +74,12 @@ class RecipesController < ApplicationController
 
   def get_recipe
     @recipe = Recipe.find_by_id(params[:id])
+  end
+
+  def check_current_user
+    if current_user != User.find_by_id(@recipe.user_id)
+      redirect_to root_path
+    end
   end
 
 end

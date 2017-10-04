@@ -1,0 +1,21 @@
+    <div class="card">
+      <div class="card-image review-card-image">
+        <%= link_to image_tag(review.image_url.to_s, :class => "profile-review-pic"),
+        recipe_review_path(review.recipe_id, review.id) %>
+      </div>
+      <div class="card-content">
+        <h4><%= review.title %></h4>
+        <big><%= review.content%></big>
+        <br>
+        <big>Rating: <%= review.rating%></big>
+        <% if current_user == User.find_by_id(params[:id]) %>
+          <span class="edit-icon">
+            <%= link_to material_icon.edit, edit_recipe_review_path(review.recipe_id, review.id),
+            class: "icon-class" %>
+          </span>
+        <% end %>
+      </div>
+      <div class="card-action">
+        <a><%= link_to "Go to Review", recipe_review_path(review.recipe_id, review.id)%></a>
+      </div>
+    </div>
