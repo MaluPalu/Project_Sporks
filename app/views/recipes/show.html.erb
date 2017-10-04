@@ -1,5 +1,10 @@
 <div class="recipe-show-page">
 
+
+  <% if flash[:notice] %>
+    <%= javascript_tag "Materialize.toast(`#{ flash[:notice]}`, 4000)", :class=> 'toast-style'%>
+  <% end %>
+
   <div class="parallax-container">
     <div class="parallax"><%= image_tag(@recipe.photo_url.to_s, :class => "main-recipe-image") %></div>
   </div>
@@ -11,9 +16,7 @@
         <%= link_to image_tag(@user.picture_url.to_s, :class => "user-pic"), user_path(@user) %>
       </div>
       <div class="col s5">
-        <% if flash[:notice] %>
-        	<div class="notice"><font color="#FF9635"><%= flash[:notice] %></font></div>
-        <% end %>
+
         <h2><%= @recipe.title %></h2>
         <div  class="row center-align">
           <div class="col s4">
