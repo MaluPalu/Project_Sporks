@@ -1,11 +1,25 @@
+   <% content_for :head do %>
+  <style>  
+    body {
+    font-family: 'Crushed', cursive;
+    font-family: 'Federant', cursive;
+    font-family: 'Raleway', sans-serif;
+      font-size: 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+    }  
+  </style>
+<% end %> 
+<h1> View All Recipes (<%= @recipes.length %>)</h1>
 <div class="row" id="recipes-show">
   <% @recipes.each do |recipe| %>
     <% recipe_author = User.find_by_id(recipe.user_id) %>
       <a href='<%= recipe_path(recipe) %>'>
         <div class="col s3">
           <div class="card panel">
-            <div class="card-image">
-             <%= image_tag(recipe.photo_url.to_s) %>
+            <div class="card-image c-hover">
+             <%= image_tag(recipe.photo_url.to_s )%>
              <span class="card-title"><%= recipe.title %></span>
             </div>
           </div>

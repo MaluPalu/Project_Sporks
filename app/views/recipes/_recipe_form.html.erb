@@ -27,40 +27,26 @@
               <label for="People_servable">Servable Amount</label>
             </div>
           </div>
-          <div class="row margin">
-            <div class="input-field col s6">
-              <i class="material-icons prefix">av_timer</i>
-              <%= f.text_field :prep_time, placeholder: "Time to Prep" %>
-              <label for="prep_time" class="center-align">Prep Time</label>
-            </div>
-            <div class="input-field col s6">
-              <i class="material-icons prefix">timer</i>
-              <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
-              <label for="cook_time" class="center-align">Cook Time</label>
-            </div>
+
+          <div class="input-field col s6">
+            <i class="material-icons prefix">timer</i>
+            <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
+            <label for="cook_time" class="center-align">Cook Time</label>
           </div>
-
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix"></i>
+            <%= f.select(:ease,{'' => "1", 'Easy' => "2", 'Medium' => "3", 'Hard' => "4"}) %>
+            <label for="recipe_ease" class="center-align">Difficulty</label>
+          </div>
+        </div>
           <div class="row margin">
-            <div class="input-field col s6">
-              <i class="material-icons prefix">sort</i>
-              <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Easy</option>
-                <option value="2">Medium</option>
-                <option value="3">Hard</option>
-              </select>
+          <div class="input-field col s12">
 
+             <%= f.text_area :ingredients, placeholder: "Ingredients", :class=>'materialize-textarea', :id=>'ta'  %>
+            <label for="Ingredients"></label>
 
-              <%= f.text_field :ease, placeholder: "Difficulty" %>
-
-            </div>
-
-
-            <div class="input-field col s6">
-              <i class="material-icons prefix">add</i>
-              <%= f.text_field :ingredients, placeholder: "Ingredients" %>
-              <label for="Ingredients">Ingredients</label>
-            </div>
           </div>
 
           <div class="row margin">
