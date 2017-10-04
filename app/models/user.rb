@@ -15,6 +15,7 @@ class User < ApplicationRecord
   # source: :following matches with the belong_to :following identification in the Follow model
   has_many :followings, through: :following_follows, source: :following
 
+  validates :username, uniqueness: true
 
 
   # Include default devise modules. Others available are:
