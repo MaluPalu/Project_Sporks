@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :get_recipe, only: [:favorite, :show, :edit, :udpate, :destroy]
+  before_action :get_recipe, only: [:favorite, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
