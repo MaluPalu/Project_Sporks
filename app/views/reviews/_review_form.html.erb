@@ -1,17 +1,50 @@
 <%= form_for [@recipe, @review] do |f| %>
- <div>
-    <%= f.text_field :title, placeholder: "Title" %>
+
+<body class="orange loaded">
+
+<div class="container">
+  <div id="login-page" class="row">
+    <div class="col s6 offset-s3 z-depth-4 card-panel center-align">
+      <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %> 
+            <p class="center login-form-text">Sporks Login---- Changing logo</p>
+          </div>
+        </div>  
+        <div class="row margin">
+          <div class="input-field col s12">
+              <%= f.text_field :title, placeholder: "Title" %>
+            <label for="title" class="center-align"><i class="material-icons prefix"></i></label>
+          </div>
+        </div>
+         <div class="row margin">
+          <div class="input-field col s12">
+            <%= f.text_area :content, placeholder: "Write Your Review",:class=> 'materialize-textarea', :id=>'ta'  %>
+          <label for="review" class="center-align"></label>
+          </div>
+        </div>
+         <div class="row margin">
+          <div class="input-field col s12">
+              <%= f.number_field :rating, placeholder: "Rating" %>
+            <label for="rating" class="center-align"></label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">add_a_photo</i>
+              <%= f.file_field :image %>
+            <label for="photo" class="center-align"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 center-align">
+            <%= f.submit "Add Review", :class=> 'btn' , :id=> 'btn' %>
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
   </div>
-  <div>
-    <%= f.text_field :content, placeholder: "Write Your Review" %>
-  </div>
-  <div>
-    <%= f.number_field :rating, placeholder: "Rating" %>
-  </div>
-  <div>
-    <p> Upload an Image </p>
-    <%= f.file_field :image %>
-  </div>
-  <br>
-  <%= f.submit "Add Review" %>
+</div>
 <% end %>
