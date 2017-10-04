@@ -2,6 +2,9 @@
 
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <%= javascript_tag "Materialize.toast(`#{ devise_error_messages!}`, 8000, 'rounded')", :class=> 'toast-style'%>
+
 <body class="orange loaded">
 
 <div class="container">
@@ -10,12 +13,12 @@
       <form class="login-form">
         <div class="row">
           <div class="input-field col s12 center">
-            <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %> 
+            <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %>
             <p class="center login-form-text">Sporks Login---- Changing logo</p>
           </div>
         </div>
 
-        
+
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">person</i>
@@ -30,8 +33,8 @@
             <label for="password">Password</label>
           </div>
         </div>
-        <div class="row"> 
-        <% if devise_mapping.rememberable? -%>         
+        <div class="row">
+        <% if devise_mapping.rememberable? -%>
           <div class="input-field col s12 login-text">
               <%= f.check_box :remember_me %>
               <label for="remember-me">Remember me</label>
@@ -55,7 +58,7 @@
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
               <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
             <% end -%>
-          </div>          
+          </div>
         </div>
 
       </form>

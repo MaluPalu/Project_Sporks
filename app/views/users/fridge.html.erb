@@ -1,21 +1,24 @@
-<%= render 'profile_menu' %>
+<div class="fridge-page">
+  <%= render 'profile_menu' %>
 
-<div class="row profile-content">
-  <div class="col s8 push-s3 big-card">
-    <h2><%= @user.name + "'s Fridge"%></h2>
+  <div class="row profile-content">
+    <div class="col s8 push-s3 big-card">
+      <h2><%= @user.name + "'s Fridge"%></h2>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col s5 push-s3">
-    <%= form_for @user do |f| %>
-      <div>
-        <%= f.label "Please separate your ingredients with a comma"%>
-      </div>
-      <div>
-        <%= f.text_area :fridge, placeholder: "Ingredients" %>
-      </div>
-      <br>
-      <%= f.submit "Search for Recipes" %>
-      <% end %>
+  <div class="row">
+    <div class="col s5 push-s3">
+      <%= form_for @user do |f| %>
+        <div>
+          <%= f.label "What's in your fridge?", :class=> 'fridge-instructions'%>
+        </div>
+        <br>
+        <div>
+          <%= f.text_area :fridge, placeholder: "Ingredients", :class=> 'fridge-text_area' %>
+        </div>
+        <br>
+        <%= f.submit "Search for Recipes", :class=> 'btn fridge-btn' %>
+        <% end %>
+    </div>
   </div>
 </div>
