@@ -43,6 +43,10 @@ class UsersController < ApplicationController
     @follows = @user.followings
   end
 
+  def followers
+    @follows = @user.followers
+  end
+
   def reviews
     @reviews = @user.reviews
   end
