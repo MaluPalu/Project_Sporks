@@ -1,32 +1,18 @@
 <div class="row" id="recipes-show">
-<% @recipes.each do |recipe| %>
-  <% recipe_author = User.find_by_id(recipe.user_id) %>
-<a href='<%= recipe_path(recipe) %>'> 
-    <div class="col s3">
-      <div class="card panel"> 
-        <div class="card-image">
-         <%= image_tag(recipe.photo_url.to_s) %>
-          <span class="card-title"><%= recipe.title %></span>
-      </div>
-    </div>
-  </div>
-<% end %>
+  <% @recipes.each do |recipe| %>
+    <% recipe_author = User.find_by_id(recipe.user_id) %>
+      <a href='<%= recipe_path(recipe) %>'>
+        <div class="col s3">
+          <div class="card panel">
+            <div class="card-image">
+             <%= image_tag(recipe.photo_url.to_s) %>
+             <span class="card-title"><%= recipe.title %></span>
+            </div>
+          </div>
+        </div>
+  <% end %>
 </div>
 
 
 
 <%= paginate @recipes %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
