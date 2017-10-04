@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/users/:id/followers', to: 'users#followers', as: 'user_followers'
   get '/users/:id/fridge', to: 'users#fridge', as: 'user_fridge'
 
+
   resources :recipes do
     put :favorite, on: :member
     collection do

@@ -1,5 +1,10 @@
 <%= render 'profile_menu' %>
 
+<div class="row profile-content">
+  <div class="col s8 push-s3 big-card">
+    <h2><%= @user.name + "'s Following"%></h2>
+  </div>
+</div>
 <div class="row">
   <div class="col s8 push-s3">
     <h2><%= "Who #{@user.name} is Following"%></h2>
