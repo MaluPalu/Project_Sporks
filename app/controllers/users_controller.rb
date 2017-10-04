@@ -6,7 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @recipes = @user.recipes
+    @reviews = @user.reviews
+    @feed = @recipes + @reviews
+    @feed = @feed.sort_by(&:created_at).reverse
   end
 
   def follow

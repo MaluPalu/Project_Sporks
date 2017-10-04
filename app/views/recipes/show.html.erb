@@ -32,13 +32,13 @@
               %>
             <% else %>
               <% if current_user %>
-                <%= link_to "Add Review", new_recipe_review_path(@recipe) %>
+                <%= link_to "Add Review", new_recipe_review_path(@recipe), :class=> "btn waves-effect waves-light #073556" %>
                 <% if !favorited_recipe? %>
-                  <%= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite"),
-                   :class=> "waves-effect", method: :put %>
+                  <%= link_to material_icon.favorite_border, favorite_recipe_path(@recipe, type: "favorite"),
+                   :class=> "material-icons", method: :put %>
                 <% else %>
-                  <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"),
-                   :class=> "waves-effect", method: :put %>
+                  <%= link_to material_icon.favorite, favorite_recipe_path(@recipe, type: "unfavorite"),
+                   :class=> "material-icons", method: :put %>
                 <% end %>
               <% end %>
             <% end %>

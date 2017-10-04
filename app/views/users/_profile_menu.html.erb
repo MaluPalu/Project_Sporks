@@ -4,7 +4,7 @@
           <img src="https://www.photohdx.com/images/2016/11/white-embossed-paper-texture-backdrop.jpg">
         </div>
         <div class="user-info">
-          <%= image_tag(@user.picture_url.to_s, :class=>"circle") %>
+          <%= link_to image_tag(@user.picture_url.to_s, :class=>"circle"), user_path(@user)%>
           <!-- <img class="circle" src="http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"> -->
           <h5> <%= @user.name %> </h5>
           <h5> <%= @user.username %> </h5>

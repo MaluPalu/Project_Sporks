@@ -9,10 +9,10 @@
 
 <div class="row">
   <% @follows.each do |follow| %>
-    <div class="col s5 push-s3">
+    <div class="col s2 push-s3">
       <div class="card">
-        <div class="card-image">
-          <img src="<%=follow.picture%>">
+        <div class="card-image-follow">
+          <%= link_to image_tag(follow.picture_url.to_s, :class => "follow-pic"), user_path(follow) %>
         </div>
         <div class="card-content">
           <h4><%= follow.name %></h4>
