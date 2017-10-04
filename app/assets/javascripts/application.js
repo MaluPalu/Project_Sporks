@@ -22,5 +22,5 @@ document.addEventListener("turbolinks:load", function() {
 $('.slider').slider();
 $('.carousel').carousel();
 $('.tooltipped').tooltip({delay: 50});
-
+$('select').material_select();
 });

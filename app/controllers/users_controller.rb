@@ -2,9 +2,11 @@ class UsersController < ApplicationController
   before_action :get_user, except: [:index]
 
   def index
+     @recipes = Recipe.last(3)
   end
 
   def show
+
   end
 
   def follow
