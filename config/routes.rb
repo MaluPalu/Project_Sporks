@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'users#index'
 
-  resources :users, except: [:index] do
+  resources :users do
     put :follow, on: :member
   end
 
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get '/users/:id/favorites', to: 'users#favorites', as: 'user_favorites'
   get '/users/:id/followings', to: 'users#followings', as: 'user_followings'
   get '/users/:id/fridge', to: 'users#fridge', as: 'user_fridge'
-  # patch '/users/:id/fridge', to: 'users#update'
 
   resources :recipes do
     put :favorite, on: :member
