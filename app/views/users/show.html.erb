@@ -16,7 +16,7 @@
 
 
     <% if flash[:notice] %>
-      <div class="notice"><font color="#FF9635"><%= flash[:notice] %></font></div>
+      <%= javascript_tag "Materialize.toast(`#{ flash[:notice]}`, 4000)", :class=> 'toast-style'%>
     <% end %>
 
 
