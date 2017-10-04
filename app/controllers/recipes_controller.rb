@@ -3,11 +3,12 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+
     search = params[:term].present? ? params[:term] : nil
     if search
-      @recipes = Recipe.search(search, operator: "or", page: params[:page], per_page: 7)
+      @recipes = Recipe.search(search, operator: "or", page: params[:page], per_page: 100)
     else
-      @recipes = Recipe.all.page(params[:page]).per(7)
+      @recipes = Recipe.all.page(params[:page]).per(100)
     end
   end
 

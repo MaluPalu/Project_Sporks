@@ -20,3 +20,18 @@
         <li><%= link_to "Open Fridge", user_fridge_path(@user), :class=> "waves-effect" %></li>
       <% end %>
   </ul>
+   <% content_for :head do %>
+  <style>
+   
+    body {
+    font-family: 'Crushed', cursive;
+    font-family: 'Federant', cursive;
+    font-family: 'Raleway', sans-serif;
+      font-size: 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+    }
+  
+  </style>
+<% end %> 
