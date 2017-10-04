@@ -20,7 +20,7 @@
         <h2><%= @recipe.title %></h2>
         <div  class="row center-align">
           <div class="col s4">
-            rating will go here
+            <big><%= star_rating(@recipe).html_safe %></big>
           </div>
           <div class="col s8">
             <% if current_user == User.find_by_id(@recipe.user_id) %>
@@ -102,7 +102,7 @@
          <div class="card-content">
            <h4><%= review.title %></h4>
            <p><%= review.content %></p>
-           <p><%= review.rating %></p>
+           <p><%= stars_html(review.rating).html_safe %></p>
          </div>
          <div class="card-action">
            <%= link_to "Go to Full Review", recipe_review_path(@recipe.id, review.id) %>

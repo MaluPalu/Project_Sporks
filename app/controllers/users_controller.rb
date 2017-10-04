@@ -2,9 +2,11 @@ class UsersController < ApplicationController
   before_action :get_user, except: [:index]
 
   def index
+     @recipes = Recipe.last(3)
   end
 
   def show
+
   end
 
   def follow
@@ -41,6 +43,10 @@ class UsersController < ApplicationController
 
   def followings
     @follows = @user.followings
+  end
+
+  def followers
+    @followers = @user.followers
   end
 
   def reviews

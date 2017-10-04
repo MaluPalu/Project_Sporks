@@ -1,25 +1,24 @@
 <%= render 'profile_menu' %>
 
-
-<div class="row profile-content">
+<div class="row">
   <div class="col s8 push-s3">
-    <h2><%= "Who #{@user.name} is Following"%></h2>
+    <h2><%= "Who Follows #{@user.name}"%></h2>
   </div>
 </div>
 
 <div class="row">
-  <% @follows.each do |follow| %>
+  <% @followers.each do |follower| %>
     <div class="col s5 push-s3">
       <div class="card">
         <div class="card-image">
-          <img src="<%=follow.picture%>">
+          <img src="<%=follower.picture%>">
         </div>
         <div class="card-content">
-          <h4><%= follow.name %></h4>
-          <big><%= follow.username %></big>
+          <h4><%= follower.name %></h4>
+          <big><%= follower.username %></big>
         </div>
         <div class="card-action">
-          <a><%= link_to "Go to Profile", user_path(follow)%></a>
+          <a><%= link_to "Go to Profile", user_path(follower)%></a>
         </div>
       </div>
     </div>
