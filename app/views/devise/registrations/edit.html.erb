@@ -1,60 +1,104 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+ 
+  <%= javascript_tag "Materialize.toast(`#{ devise_error_messages!}`, 8000, 'rounded')", :class=> 'toast-style'%>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autocomplete: "off" %>
-  </div>
+<!-- time to start on this page and make sure everything works  -->
 
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.file_field :picture %>
-  </div>
 
-  <br>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<body class="orange loaded">
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<div class="container">
+  <div id="login-page" class="row">
+    <div class="col s6 offset-s3 z-depth-4 card-panel center-align">
+      <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %> 
+            <p class="center login-form-text">Sporks Login---- Changing logo</p>
+          </div>
+        </div>  
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person</i>
+              <%= f.text_field :name, autocomplete: "off" %>
+            <label for="name" class="center-align">Name</label>
+          </div>
+        </div>
+         <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">verified_user</i>
+              <%= f.text_field :username, autocomplete: "off" %>
+          <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+         <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">photo_camera</i>
+              <%= f.file_field :picture %>
+            <label for="picture" class="center-align"></label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+              <%= f.email_field :email, autofocus: true %>
+            <label for="email" class="center-align">Email</label>
+          </div>
+        </div>
+         <% if devise_mapping.confirmable? && resource.pending_reconfirmation?%>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+  <div class="row margin">
+    <div class="input-field col s12">
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+      <em>
+        <%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+      </div>
+    </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+             <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <label for="password_confirmation">Password Confirmation</label>
+          </div>
+        </div>
+          <div class="row margin">
+          <div class="input-field col s12">
+            <%= f.password_field :current_password, autocomplete: "off" %>
+            <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i><br/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6 center-align">
+            <%= link_to "Back", :back, :class=> 'btn orange' %>
+          </div>
+       
+          <div class="input-field col s6 center-align actions">
+            <%= f.submit "Update", :class=> 'btn' , :id=> 'btn' %>
+          </div>
+        </div>
+      <% end %>
+        <div class="row">
+          <div class="input-field col s12 center-align">
+            <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , :class=> 'btn red' %>
+          </div>
+        </div>
+
+     
+         
+        </div>
+      </form>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

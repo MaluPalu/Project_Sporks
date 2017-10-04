@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col s8 push-s3">
     <h2>Activity Feed</h2>
-    <% if current_user %>
+    <% if current_user && !same_as_current_user? %>
       <% if following_user? %>
         <%= link_to "Unfollow", follow_user_path(@user, type: "unfollow"),
         :class=> "waves-effect", method: :put %>
@@ -16,7 +16,7 @@
 
 
     <% if flash[:notice] %>
-      <div class="notice"><font color="#FF9635"><%= flash[:notice] %></font></div>
+      <%= javascript_tag "Materialize.toast(`#{ flash[:notice]}`, 4000, 'rounded')", :class=> 'toast-style'%>
     <% end %>
 
 

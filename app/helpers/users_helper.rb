@@ -11,7 +11,7 @@ module UsersHelper
   end
 
   def same_as_current_user?
-    !!current_user == User.find_by_id(params[:id])
+    current_user == User.find_by_id(params[:id])
   end
 
 end

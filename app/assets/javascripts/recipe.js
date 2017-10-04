@@ -11,10 +11,11 @@ $(document).on('turbolinks:load', function(){
   $('#recipes_search').typeahead(null, {
     source: recipes
   })
-}).on('keypress', function(e) {
+  $('#recipes_search').on('keypress', function(e) {
   if (e.which == 13) {
     e.preventDefault();
     var q = $('#recipes_search').val();
     window.location.href = "/recipes?term="+q;
   }
  });
+})
