@@ -26,8 +26,7 @@
         </div>
          <div class="row margin">
           <div class="input-field col s12">
-              <%= f.number_field :rating, placeholder: "Rating" %>
-            <label for="rating" class="center-align"></label>
+            <%= f.select(:rating, {"5 Stars" => "5", "4 Stars" => "4", "3 Stars" => "3", "2 Stars" => "2", "1 Star" => "1"})%>
           </div>
         </div>
         <div class="row margin">
