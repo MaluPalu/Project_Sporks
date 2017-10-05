@@ -60,6 +60,7 @@ nav {
 .card .card-image {
 	&.c-hover .card-title {
 		color: transparent;
+
 	}
 
 	&.c-hover:hover img {
@@ -72,4 +73,16 @@ nav {
 }
 .page-footer {
 	background-color: rgb(12, 52, 88);
+}
+
+#recipes-show {
+	column-width: 320px;
+	column-gap: 15px;
+	width: 90%;
+	max-width: 1100px;
+	margin: 50px auto;
+    
+}
+#card-size {
+	height: 100%;
 }
