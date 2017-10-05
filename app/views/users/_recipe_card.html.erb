@@ -16,7 +16,7 @@
           <h5 class="recipeTitle">Serves:</h5>
           <%= recipe.serves %>
         </p>
-        <% if current_user == User.find_by_id(params[:id]) %>
+        <% if current_user == User.find_by_id(recipe.user_id) %>
         <span class="edit-icon">
           <%= link_to material_icon.edit, edit_recipe_path(recipe), class: "icon-class" %>
         </span>
