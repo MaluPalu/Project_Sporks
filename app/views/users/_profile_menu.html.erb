@@ -1,11 +1,10 @@
   <ul class="side-nav fixed profile-menu">
       <li><div class="user-view">
         <div class="background">
-          <img src="https://www.photohdx.com/images/2016/11/white-embossed-paper-texture-backdrop.jpg">
+          <img src="http://img.freepik.com/free-photo/rye-sliced-bread-on-the-table_1112-1302.jpg?size=338&ext=jpg" id="prof_back">
         </div>
         <div class="user-info">
           <%= link_to image_tag(@user.picture_url.to_s, :class=>"circle"), user_path(@user)%>
-          <!-- <img class="circle" src="http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png"> -->
           <h5> <%= @user.name %> </h5>
           <h5> <%= @user.username %> </h5>
         </div>
@@ -22,7 +21,7 @@
   </ul>
    <% content_for :head do %>
   <style>
-   
+
     body {
     font-family: 'Crushed', cursive;
     font-family: 'Federant', cursive;
@@ -32,6 +31,6 @@
     h1 {
       font-size: 2.2rem;
     }
-  
+
   </style>
-<% end %> 
+<% end %>

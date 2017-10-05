@@ -1,7 +1,7 @@
  <% content_for :head do %>
   <style>
     nav {
-      background-color: transparent; 
+      background-color: transparent;
       box-shadow: none;
     }
     body {
@@ -21,36 +21,36 @@
     color: rgb(12, 52, 88);
     }
   </style>
-<% end %> 
+<% end %>
 <div>
  <div class="slider">
     <ul class="slides">
       <li>
          <%= image_tag ("food_header/mixed.jpg")%> <!-- random image -->
         <div class="caption center-align">
-          <h3>pic 1</h3>
-          <h5 class="light grey-text text-lighten-3">here</h5>
+          <h3></h3>
+          <h5 class="light grey-text text-lighten-3"></h5>
         </div>
       </li>
       <li>
         <a href=""><%= image_tag("food_header/pancakes.jpg")%></a> <!-- random image -->
         <div class="caption left-align">
           <h3></h3>
-          <h5 class="light grey-text text-lighten-3">here</h5>
+          <h5 class="light grey-text text-lighten-3"></h5>
         </div>
       </li>
       <li>
         <a href=""><%= image_tag("food_header/steak.jpg")%></a> <!-- random image -->
         <div class="caption right-align">
           <h3></h3>
-          <h5 class="light grey-text text-lighten-3">here</h5>
+          <h5 class="light grey-text text-lighten-3"></h5>
         </div>
       </li>
       <li>
         <a href=""><%= image_tag("food_header/plate.jpg")%></a> <!-- random image -->
         <div class="caption center-align">
           <h3></h3>
-          <h5 class="light grey-text text-lighten-3">here</h5>
+          <h5 class="light grey-text text-lighten-3"></h5>
         </div>
       </li>
     </ul>
@@ -59,9 +59,9 @@
   <div class="row">
   <% @recipes.each do |recipe| %>
     <% recipe_author = User.find_by_id(recipe.user_id) %>
-  <a href='<%= recipe_path(recipe) %>'> 
-      <div class="col s4 ">
-        <div class="card panel"> 
+  <a href='<%= recipe_path(recipe) %>'>
+      <div class="col s4">
+        <div class="card panel">
           <div class="card-image c-hover">
            <%= image_tag(recipe.photo_url.to_s) %>
             <span class="card-title"><%= recipe.title %></span>
@@ -83,7 +83,3 @@
 
 
 </div>
-
-
-
-

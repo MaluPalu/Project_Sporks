@@ -13,9 +13,9 @@
       <% end %>
     <% end %>
 
-    <div class="row">
+    <div class="" id="recipes-show">
       <% @feed.each do |item| %>
-      <div class="col s5">
+      <div class="col 12">
         <% if item.is_a?(Recipe) %>
           <%= render 'recipe_card', recipe: item %>
         <% else %>
