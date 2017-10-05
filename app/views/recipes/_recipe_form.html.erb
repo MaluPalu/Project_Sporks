@@ -1,81 +1,81 @@
 <%= form_for @recipe do |f| %>
 
+  <body class="orange loaded">
 
+    <div class="container">
+      <div id="login-page" class="row">
+        <div class="col s8 offset-s2 z-depth-4 card-panel center-align">
 
-<body class="orange loaded">
+          <form class="login-form">
+            <div class="row">
+              <div class="input-field col s12 center">
+                <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %>
+                <h4 class="center login-form-text">Create New Recipe</h4>
+              </div>
+            </div>
+            <div class="row margin">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">title</i>
+                <%= f.text_field :title, placeholder: "Title" %>
+                <label for="title" class="center-align">Title</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">chat</i>
+                <%= f.number_field :serves, placeholder: "People Servable" %>
+                <label for="People_servable">Servable Amount</label>
+              </div>
+            </div>
 
-  <div class="container">
-    <div id="login-page" class="row">
-      <div class="col s8 offset-s2 z-depth-4 card-panel center-align">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">timer</i>
+              <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
+              <label for="cook_time" class="center-align">Cook Time</label>
+            </div>
 
-        <form class="login-form">
-          <div class="row">
-            <div class="input-field col s12 center">
-              <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %>
-              <p class="center login-form-text">Create New Recipe</p>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="material-icons prefix"></i>
+              <%= f.select(:ease,{'' => "1", 'Easy' => "2", 'Medium' => "3", 'Hard' => "4"}) %>
+              <label for="recipe_ease" class="center-align">Difficulty</label>
             </div>
           </div>
           <div class="row margin">
-            <div class="input-field col s6">
-              <i class="material-icons prefix">title</i>
-              <%= f.text_field :title, placeholder: "Title" %>
-              <label for="title" class="center-align">Title</label>
-            </div>
-            <div class="input-field col s6">
-              <i class="material-icons prefix">chat</i>
-              <%= f.number_field :serves, placeholder: "People Servable" %>
-              <label for="People_servable">Servable Amount</label>
+            <div class="input-field col s12">
+
+               <%= f.text_area :ingredients, placeholder: "Ingredients", :class=>'materialize-textarea', :id=>'ta'  %>
+              <label for="Ingredients"></label>
+
             </div>
           </div>
-
-          <div class="input-field col s6">
-            <i class="material-icons prefix">timer</i>
-            <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
-            <label for="cook_time" class="center-align">Cook Time</label>
+          <div class="row margin">
+            <div class="input-field col s12 center-align">
+              <%= f.text_area :instructions, placeholder: "Instructions", :class=>'materialize-textarea', :id=>'ta'  %>
+              <label for="Instructions"></label>
+            </div>
           </div>
-
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="material-icons prefix"></i>
-            <%= f.select(:ease,{'' => "1", 'Easy' => "2", 'Medium' => "3", 'Hard' => "4"}) %>
-            <label for="recipe_ease" class="center-align">Difficulty</label>
+          <div class="row margin">
+            <div class="input-field col s12 center-align">
+              <%= f.text_area :description, placeholder: "Description" , :class=> 'materialize-textarea', :id=>'ta' %>
+              <label for="description"></label>
+            </div>
           </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-
-             <%= f.text_area :ingredients, placeholder: "Ingredients", :class=>'materialize-textarea', :id=>'ta'  %>
-            <label for="Ingredients"></label>
-
+          <div class="row margin">
+            <div class="input-field col s12 offset-s4 center-align">
+              <i class="material-icons prefix">add_a_photo</i>
+              <%= f.file_field :photo, placeholder: "Photo" %>
+              <label for="Photo"></label>
+            </div>
           </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12 center-align">
-            <%= f.text_area :instructions, placeholder: "Instructions", :class=>'materialize-textarea', :id=>'ta'  %>
-            <label for="Instructions"></label>
+          <div class="row">
+            <div class="input-field col s12 center-align">
+              <%= f.submit "#{button_title}", :class=> 'btn' , :id=> 'btn' %>
+            </div>
           </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12 center-align">
-            <%= f.text_area :description, placeholder: "Description" , :class=> 'materialize-textarea', :id=>'ta' %>
-            <label for="description"></label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12 offset-s4 center-align">
-            <i class="material-icons prefix">add_a_photo</i>
-            <%= f.file_field :photo, placeholder: "Photo" %>
-            <label for="Photo"></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12 center-align">
-            <%= f.submit "#{button_title}", :class=> 'btn' , :id=> 'btn' %>
-          </div>
-        </div>
-      </form>
-     </div>
+        </form>
+       </div>
+      </div>
     </div>
-  </div>
-</body>
+
+  </body>
+
 <% end %>
