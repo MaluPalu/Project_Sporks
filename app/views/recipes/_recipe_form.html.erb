@@ -33,7 +33,7 @@
             <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
             <label for="cook_time" class="center-align">Cook Time</label>
           </div>
-        </div>
+
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix"></i>
@@ -41,42 +41,41 @@
             <label for="recipe_ease" class="center-align">Difficulty</label>
           </div>
         </div>
-          <div class="row margin">
+        <div class="row margin">
           <div class="input-field col s12">
 
              <%= f.text_area :ingredients, placeholder: "Ingredients", :class=>'materialize-textarea', :id=>'ta'  %>
             <label for="Ingredients"></label>
 
           </div>
-
-          <div class="row margin">
-            <div class="input-field col s12 center-align">
-              <%= f.text_area :instructions, placeholder: "Instructions", :class=>'materialize-textarea', :id=>'ta'  %>
-              <label for="Instructions"></label>
-            </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12 center-align">
+            <%= f.text_area :instructions, placeholder: "Instructions", :class=>'materialize-textarea', :id=>'ta'  %>
+            <label for="Instructions"></label>
           </div>
-          <div class="row margin">
-            <div class="input-field col s12 center-align">
-              <%= f.text_area :description, placeholder: "Description" , :class=> 'materialize-textarea', :id=>'ta' %>
-              <label for="description"></label>
-            </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12 center-align">
+            <%= f.text_area :description, placeholder: "Description" , :class=> 'materialize-textarea', :id=>'ta' %>
+            <label for="description"></label>
           </div>
-          <div class="row margin">
-            <div class="input-field col s12 offset-s4 center-align">
-              <i class="material-icons prefix">add_a_photo</i>
-              <%= f.file_field :photo, placeholder: "Photo" %>
-              <label for="Photo"></label>
-            </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12 offset-s4 center-align">
+            <i class="material-icons prefix">add_a_photo</i>
+            <%= f.file_field :photo, placeholder: "Photo" %>
+            <label for="Photo"></label>
           </div>
-          <div class="row">
-            <div class="input-field col s12 center-align">
-              <%= f.submit "#{button_title}", :class=> 'btn' , :id=> 'btn' %>
-            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 center-align">
+            <%= f.submit "#{button_title}", :class=> 'btn' , :id=> 'btn' %>
           </div>
         </div>
       </form>
-
+     </div>
     </div>
   </div>
-</div>
+</body>
 <% end %>
