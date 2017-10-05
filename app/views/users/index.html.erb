@@ -1,7 +1,7 @@
  <% content_for :head do %>
   <style>
     nav {
-      background-color: transparent; 
+      background-color: transparent;
       box-shadow: none;
     }
     body {
@@ -21,7 +21,7 @@
     color: rgb(12, 52, 88);
     }
   </style>
-<% end %> 
+<% end %>
 <div>
  <div class="slider">
     <ul class="slides">
@@ -59,9 +59,9 @@
   <div class="row">
   <% @recipes.each do |recipe| %>
     <% recipe_author = User.find_by_id(recipe.user_id) %>
-  <a href='<%= recipe_path(recipe) %>'> 
-      <div class="col s4 ">
-        <div class="card panel"> 
+  <a href='<%= recipe_path(recipe) %>'>
+      <div class="col s4">
+        <div class="card panel">
           <div class="card-image c-hover">
            <%= image_tag(recipe.photo_url.to_s) %>
             <span class="card-title"><%= recipe.title %></span>
@@ -83,7 +83,3 @@
 
 
 </div>
-
-
-
-
