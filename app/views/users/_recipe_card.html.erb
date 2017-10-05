@@ -11,8 +11,8 @@
           <%= recipe.prep_time %> <br>
           <h5 class="recipeTitle">Cook Time:</h5>
           <%= recipe.cook_time %> <br>
-          <h5 class="recipeTitle">Ease of make:</h5>
-          <%= recipe.ease %> <br>
+          <h5 class="recipeTitle">Difficulty:</h5>
+          <%= difficulty_string(recipe.ease) %> <br>
           <h5 class="recipeTitle">Serves:</h5>
           <%= recipe.serves %>
         </p>

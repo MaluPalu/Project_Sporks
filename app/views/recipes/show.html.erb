@@ -57,7 +57,7 @@
 
     <div class="row">
       <div class="col s3 center-align">
-        <h4>Difficulty Level: <br><%= @recipe.ease %></h4>
+        <h4>Difficulty Level: <br><%= difficulty_string(@recipe.ease) %></h4>
       </div>
       <div class="col s3 center-align">
         <h4>Prep Time: <br><%= @recipe.prep_time %></h4>

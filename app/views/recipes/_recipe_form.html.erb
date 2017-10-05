@@ -10,9 +10,10 @@
             <div class="row">
               <div class="input-field col s12 center">
                 <%= image_tag "food_header/TheSpork_Logo.png", :class=>"responsive-img valign profile-image-login" %>
-                <h4 class="center login-form-text">Create New Recipe</h4>
+                <h4 class="center login-form-text"><%= "#{form_title}" %></h4>
               </div>
             </div>
+
             <div class="row margin">
               <div class="input-field col s6">
                 <i class="material-icons prefix">title</i>
@@ -26,51 +27,62 @@
               </div>
             </div>
 
-            <div class="input-field col s6">
-              <i class="material-icons prefix">timer</i>
-              <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
-              <label for="cook_time" class="center-align">Cook Time</label>
+            <div class="row margin">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">timer</i>
+                <%= f.text_field :prep_time, placeholder: "Time to Prep" %>
+                <label for="cook_time" class="center-align">Cook Time</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">av_timer</i>
+                <%= f.text_field :cook_time, placeholder: "Time to Cook" %>
+                <label for="cook_time" class="center-align">Cook Time</label>
+              </div>
             </div>
 
-          <div class="row margin">
-            <div class="input-field col s12">
-              <i class="material-icons prefix"></i>
-              <%= f.select(:ease,{'' => "1", 'Easy' => "2", 'Medium' => "3", 'Hard' => "4"}) %>
-              <label for="recipe_ease" class="center-align">Difficulty</label>
+            <div class="row margin">
+              <div class="input-field col s12">
+                <i class="material-icons prefix"></i>
+                <%= f.select(:ease,{'' => "1", 'Easy' => "2", 'Medium' => "3", 'Hard' => "4"}) %>
+                <label for="recipe_ease" class="center-align">Difficulty</label>
+              </div>
             </div>
-          </div>
-          <div class="row margin">
-            <div class="input-field col s12">
 
-               <%= f.text_area :ingredients, placeholder: "Ingredients", :class=>'materialize-textarea', :id=>'ta'  %>
-              <label for="Ingredients"></label>
+            <div class="row margin">
+              <div class="input-field col s12">
+                 <%= f.text_area :ingredients, placeholder: "Ingredients", :class=>'materialize-textarea', :id=>'ta'  %>
+                <label for="Ingredients"></label>
+              </div>
+            </div>
 
+            <div class="row margin">
+              <div class="input-field col s12 center-align">
+                <%= f.text_area :instructions, placeholder: "Instructions", :class=>'materialize-textarea', :id=>'ta'  %>
+                <label for="Instructions"></label>
+              </div>
             </div>
-          </div>
-          <div class="row margin">
-            <div class="input-field col s12 center-align">
-              <%= f.text_area :instructions, placeholder: "Instructions", :class=>'materialize-textarea', :id=>'ta'  %>
-              <label for="Instructions"></label>
+
+            <div class="row margin">
+              <div class="input-field col s12 center-align">
+                <%= f.text_area :description, placeholder: "Description" , :class=> 'materialize-textarea', :id=>'ta' %>
+                <label for="description"></label>
+              </div>
             </div>
-          </div>
-          <div class="row margin">
-            <div class="input-field col s12 center-align">
-              <%= f.text_area :description, placeholder: "Description" , :class=> 'materialize-textarea', :id=>'ta' %>
-              <label for="description"></label>
+
+            <div class="row margin">
+              <div class="input-field col s12 offset-s4 center-align">
+                <i class="material-icons prefix">add_a_photo</i>
+                <%= f.file_field :photo, placeholder: "Photo" %>
+                <label for="Photo"></label>
+              </div>
             </div>
-          </div>
-          <div class="row margin">
-            <div class="input-field col s12 offset-s4 center-align">
-              <i class="material-icons prefix">add_a_photo</i>
-              <%= f.file_field :photo, placeholder: "Photo" %>
-              <label for="Photo"></label>
+
+            <div class="row">
+              <div class="input-field col s12 center-align">
+                <%= f.submit "#{button_title}", :class=> 'btn' , :id=> 'btn' %>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12 center-align">
-              <%= f.submit "#{button_title}", :class=> 'btn' , :id=> 'btn' %>
-            </div>
-          </div>
+
         </form>
        </div>
       </div>
