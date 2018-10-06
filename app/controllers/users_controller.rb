@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def follow
-
     type = params[:type]
     if type == "follow" && !following_user?
       @user.followers << current_user
