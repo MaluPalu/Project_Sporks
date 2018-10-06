@@ -6,10 +6,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @recipes = @user.recipes
-    @reviews = @user.reviews
-    @feed = @recipes + @reviews
-    @feed = @feed.sort_by(&:created_at).reverse
+    if !same_as_current_user?
+      @recipes = @user.recipes
+      @reviews = @user.reviews
+      @feed = @recipes + @reviews
+      @feed = @feed.sort_by(&:created_at).reverse
+    else
+      feed_array = []
+      current_user.followings.each do |follows|
+        feed_array = feed_array + follows.recipes
+        feed_array = feed_array + follows.reviews
+      end
+      @feed = feed_array.sort_by(&:created_at).reverse[0..3]
+    end
   end
 
   def follow

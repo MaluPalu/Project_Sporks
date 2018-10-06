@@ -13,8 +13,10 @@
       <div class="col s8">
         <h4><%= @review.content %></h4>
       </div>
+      <br>
 
-      <% if current_user == User.find_by_id(@review.user_id) %>
+      <% review_author = User.find_by_id(@review.user_id) %>
+      <% if current_user == review_author %>
         <div class="col s4">
           <%= link_to material_icon.edit, edit_recipe_review_path(@recipe.id, @review.id),
           :class=>"bigger icon-class" %>
@@ -22,6 +24,12 @@
           :class=>"bigger icon-class", method: :delete, data:
           {confirm: 'Are you sure you want to delete this review?'} %>
         </div>
+      <% elsif current_user %>
+        <div class="col s4">
+          <big>Review Written by <%= review_author.username %></big>
+          <div class="col s2 center-align review-author-div">
+            <%= link_to image_tag(review_author.picture_url.to_s, :class => "user-pic reviewer-pic"), user_path(review_author) %>
+          </div>
       <% end %>
     </div>
 

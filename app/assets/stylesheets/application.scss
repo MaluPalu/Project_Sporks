@@ -40,11 +40,11 @@ input.col.tt-hint {
 
 #si {
 	margin-left: 375px;
-} 
+}
 placeholder {
 	color: black;
 }
-.twitter-typeahead { width: 100%; } 
+.twitter-typeahead { width: 100%; }
 nav {
 	background-color: rgb(12, 52, 88);
 }
@@ -55,15 +55,16 @@ nav {
  	outline: solid ;
  }
 .toast h2 {
-	font-size: 30px !important ; 
+	font-size: 30px !important ;
 }
 .card .card-image {
 	&.c-hover .card-title {
 		color: transparent;
+
 	}
 
 	&.c-hover:hover img {
-		opacity: 0;
+		opacity: .15;
 	}
 
 	&.c-hover:hover .card-title {
@@ -72,4 +73,16 @@ nav {
 }
 .page-footer {
 	background-color: rgb(12, 52, 88);
+}
+
+#recipes-show {
+	column-width: 320px;
+	column-gap: 15px;
+	width: 90%;
+	max-width: 1100px;
+	margin: 50px auto;  
+}
+
+#card-size {
+	height: 100%;
 }

@@ -20,4 +20,14 @@ module RecipesHelper
     end
   end
 
+  def difficulty_string(str)
+    num = str.to_i
+    difficulty_level = ['', '', 'Easy', 'Medium', 'Hard']
+    if num < 0 || num > 4
+      ''
+    else
+      difficulty_level[num]
+    end
+  end
+
 end
