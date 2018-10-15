@@ -81,5 +81,7 @@ test:
 production:
   <<: *default
   database: Project_Sporks_production
-  username: Project_Sporks
-  password: <%= ENV['PROJECT_SPORKS_DATABASE_PASSWORD'] %>
+  username: projectsporks
+  password: projectsporks1234!
+  host:	    projectsporks.cxbr5yw7swjn.us-east-1.rds.amazonaws.com
+  port:     5432;
